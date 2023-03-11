@@ -1,0 +1,13 @@
+local targetUsernames = {"bunnyswopper12", "demon8989_19"} -- usernames of the players who need to send the message
+local allowedUsernames = {"zoark215", "Itsjustmefriendly1"} -- usernames of users who are allowed to be reset
+local humanoid = game.Players.LocalPlayer.Character.Humanoid -- get the local player's humanoid object
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if message == ".IamDaddy" and table.find(targetUsernames, player.Name) then
+            if table.find(allowedUsernames, game.Players.LocalPlayer.Name) then
+                humanoid:Reset() -- reset the local player's character
+            end
+        end
+    end)
+end)
